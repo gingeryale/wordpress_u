@@ -25,6 +25,11 @@ add_action('after_setup_theme', 'ficu_features');
 
 
 function uni_adjusted_queries ($q){
+	if(!is_admin() AND is_post_type_archive('program') AND is_main_query()){
+		$q->set('orderby', 'title');
+		$q->set('order', 'ASC');
+		$q->set('posts_per_page', -1);
+	}
 	if(!is_admin() AND is_post_type_archive('event') AND $q->is_main_query()){
 		//$q->set('posts_per_page', '1'); only shows one at a time
 		$today = date('Ymd');
