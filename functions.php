@@ -18,8 +18,11 @@ add_action('wp_enqueue_scripts', 'ficu_theme_files');
 
 function ficu_features(){
 	add_theme_support('title-tag');
-	register_nav_menu('headerMenuLocation', 'header menu location');
+	add_theme_support('post-thumbnails');
+	// register_nav_menu('headerMenuLocation', 'header menu location');
 	register_nav_menu('footerMenuLocationA', 'footer menu location 1');
+	add_image_size('professorLandscape', 400, 260, true);
+	add_image_size('professorPortrait', 480, 650, true);
 }
 add_action('after_setup_theme', 'ficu_features');
 
