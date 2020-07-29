@@ -1,5 +1,36 @@
 <?php
 
+
+function pageBanner($args) { 
+	if(!$args['title']){
+		$args['title'] = get_the_title();
+	}
+	if(!$args['subtitle']){
+		$args['subtitle'] = get_field('page_banner_subtitle');
+	}
+	if(!$args['photo']){
+		if(get_field('page_banner_background_image')){
+			$args['photo'] = get_field('page_banner_background_image')['sizes']['pageBanner'];
+		} else{
+			$args['photo'] = get_theme/-file_uri('/images/ocean.jpg');
+		}
+	}
+	?>
+	<div class="page-banner">
+		<div class="page-banner__bg-image" style="background-image: url(<?php echo  
+		$args['photo']; ?>);">
+		</div>
+		<div class="page-banner__content container container--narrow">
+		  <h1 class="page-banner__title"><? echo $args['title']; ?></h1>
+		  <div class="page-banner__intro">
+			<p><? echo $args['subtitle']; ?></p>
+		  </div>
+		</div>  
+	  </div>
+	
+	<?php }
+
+
 function ficu_theme_files(){
 	wp_enqueue_style('fonts_uri','//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i|Roboto:100,300,400,400i,700,700i');
 	wp_enqueue_style('ficu_styles', get_stylesheet_uri());
@@ -23,6 +54,7 @@ function ficu_features(){
 	register_nav_menu('footerMenuLocationA', 'footer menu location 1');
 	add_image_size('professorLandscape', 400, 260, true);
 	add_image_size('professorPortrait', 480, 650, true);
+	add_image_size('pageBanner', 1500, 350, true);
 }
 add_action('after_setup_theme', 'ficu_features');
 
@@ -53,7 +85,6 @@ function uni_adjusted_queries ($q){
 }
 
 add_action('pre_get_posts', 'uni_adjusted_queries');
-
 
 
 ?>
