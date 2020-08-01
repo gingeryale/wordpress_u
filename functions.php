@@ -1,7 +1,7 @@
 <?php
 
 
-function pageBanner($args) { 
+function pageBanner($args = NULL) { 
 	if(!$args['title']){
 		$args['title'] = get_the_title();
 	}
@@ -12,7 +12,7 @@ function pageBanner($args) {
 		if(get_field('page_banner_background_image')){
 			$args['photo'] = get_field('page_banner_background_image')['sizes']['pageBanner'];
 		} else{
-			$args['photo'] = get_theme/-file_uri('/images/ocean.jpg');
+			$args['photo'] = get_theme_file_uri('/images/ocean.jpg');
 		}
 	}
 	?>

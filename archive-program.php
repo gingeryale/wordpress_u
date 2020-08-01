@@ -1,6 +1,12 @@
-<?php get_header(); ?>
+<?php 
+get_header(); 
+pageBanner(array(
+  'title' => 'All Programs',
+  'subtitle' => 'FicU offers the highest quality programs'
+));
+?>
 
-
+<!-- 
 <div class="page-banner">
     <div class="page-banner__bg-image" style="background-image: url(<?php echo get_theme_file_uri('/images/ocean.jpg') ?>;"></div>
     <div class="page-banner__content container container--narrow">
@@ -13,7 +19,7 @@
         <p>A program to match your every interest.</p>
       </div>
     </div>  
-  </div>
+  </div> -->
     <div class="container container--narrow page-section">
     <ul class="link-list min-list">
   <?php 
