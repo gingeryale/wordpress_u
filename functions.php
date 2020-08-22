@@ -33,13 +33,14 @@ function pageBanner($args = NULL) {
 
 function ficu_theme_files(){
 	wp_enqueue_style('fonts_uri','//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i|Roboto:100,300,400,400i,700,700i');
+	wp_enqueue_style('font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 	wp_enqueue_style('ficu_styles', get_stylesheet_uri());
 	if(strstr($_SERVER['SERVER_NAME'],'udemy.local')){
 		wp_enqueue_script('ficu_js', 'http://localhost:3000/bundled.js', NULL, '1.0', true);
 	}else{
-wp_enqueue_script('ficu_vendors_js', get_theme_file_uri('/bundled-assets/vendors~scripts.8c97d901916ad616a264.js'), NULL, '1.0', true);
-		wp_enqueue_script('ficu_js', get_theme_file_uri('/bundled-assets/scripts.51f94cfd11cb8af1a9ec.js'), NULL, '1.0', true);
-		wp_enqueue_style('ficu_main_styles', get_theme_file_uri('/bundled-assets/styles.51f94cfd11cb8af1a9ec.css'));
+wp_enqueue_script('ficu_vendors_js', get_theme_file_uri('/bundled-assets/vendors~scripts.a7e0c6c39138596d4736.js'), NULL, '1.0', true);
+		wp_enqueue_script('ficu_js', get_theme_file_uri('/bundled-assets/scripts.ec1075957245cbe5bf0f.js'), NULL, '1.0', true);
+		wp_enqueue_style('ficu_main_styles', get_theme_file_uri('/bundled-assets/styles.ec1075957245cbe5bf0f.css'));
 	}
 
 }
